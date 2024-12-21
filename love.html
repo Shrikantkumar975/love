@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGxvdmV8ZW58MHx8fHwxNjg0MjY1NjY0&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.835);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #e63946;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            color: purple;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 0;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+        }
+
+        /* Yes Button */
+        #yesButton {
+            color: white;
+        }
+
+        #yesButton::before,
+        #yesButton::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            border-radius: 50px 50px 0 0;
+            background: #e10e0e;
+        }
+
+        #yesButton::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        #yesButton::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        /* No Button */
+        #noButton {
+            color: white;
+        }
+
+        #noButton::before,
+        #noButton::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            border-radius: 50px 50px 0 0;
+            background: #17130f;
+        }
+
+        #noButton::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        #noButton::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        /* Button Text */
+        #yesButton span,
+        #noButton span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            color: white;
+        }
+
+        /* Hover Effects */
+        #yesButton:hover::before,
+        #yesButton:hover::after {
+            background-color: #e8dc2e;
+        }
+
+        #noButton:hover::before,
+        #noButton:hover::after {
+            background-color: #d65f43;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>I'm Sorry</h1>
+        <p>Meri Princesss</p>
+        <hr>
+        <p>I am truly sorry for what I did.Forgive me my love.</p>
+        <p>Select RED one means you forgive me, or BLACK you hate me.</p>
+ <div class="buttons">
+            <button id="yesButton"><span>Yes</span></button>
+            <button id="noButton"><span>No</span></button>
+        </div>
+    </div>
+    <script>
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        // Move the "No" button every 5 milliseconds
+        setInterval(moveButton, 30);
+
+        document.getElementById('yesButton').addEventListener('click', function () {
+            alert("Thank you for forgiving me!");
+        });
+
+        document.getElementById('noButton').addEventListener('click', function () {
+            alert("I understand. I'm really sorry.");
+        });
+    </script>
+</body>
+
+</html>
